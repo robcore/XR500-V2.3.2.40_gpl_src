@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<% hijack_title() %>
+<meta charset="utf-8" />
+</head>
+<body onLoad="loadvalue();">
+
+<script>
+var lte_pin_status="<% cfg_get("lte_pin_status") %>";
+var lte_left_pin_times="<% cfg_get("lte_left_pin_times") %>";
+var lte_left_puk_times="<% cfg_get("lte_left_puk_times") %>";
+function loadvalue()
+{
+	var cf=document.forms[0];
+	if(lte_pin_status =="SIM PUK" && lte_left_puk_times!="0")
+		location.href="enter_puk.htm";
+	else if(lte_pin_status =="SIM PIN" && lte_left_pin_times!="0")
+		location.href="enter_pin.htm";
+	else if(lte_pin_status =="READY")
+			location.href="BAS_mobile_internet.htm";
+	else
+	{
+		if(lte_pin_status =="SIM Not Detected")
+			alert("SIM Not Detected!");
+		else if(lte_pin_status =="SIM Invaild")
+			alert("SIM Card Invaild!");
+		else
+			alert("SIM Card Destroied!");
+		location.href="BAS_mobile_internet.htm";
+	}
+}
+
+</script>
+</body>
+</html>

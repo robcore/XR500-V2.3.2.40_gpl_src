@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<% hijack_title() %>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="style/hijack_style.css" />
+<% hijack_language() %>
+</head>
+<% wizlog_setupWizard_ck04("2") %>
+<body onLoad="loadvalue()">
+<div class="wizard_content_div">
+
+	<div class="wizard_words_div">
+		
+		<div class="waiting_connect_div" align="center">
+			<h1>
+				<script>document.write(bh_check_ap);</script>
+			</h1>
+		</div>
+		
+		<div class="waiting_img_div" align="center">
+			<img src="image/wait30.gif" />
+		</div>
+	
+	</div>
+</div>
+</body>
+<script>
+function loadvalue()
+{
+	this.location.href = "BRS_03B_haveBackupFile.html"
+}
+</script>
+</html>

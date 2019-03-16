@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<% hijack_title() %>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="style/hijack_style.css" />
+<script language="javascript" type="text/javascript" src="script/brs_hijack.js"></script>
+<% hijack_language() %>
+</head>
+
+<body onLoad="loadvalue();" bgcolor=#ffffff>
+<% form_submit("apply", "detect_have_simcard_wait.htm", "succ_conn_hsdpa") %>
+
+<script>
+<% save_timestamp("succ_conn_hsdpa", "lte_succ_conn_hsdpa") %>
+var sim_card_flag="<% cfg_get("wan_sim_card") %>";
+function loadvalue()
+{
+	if(sim_card_flag == '1')
+	{
+		if(getTop(window).have_lte_flag =='1')
+			document.forms[0].submit_flag.value="lte_succ_conn_hsdpa";
+		document.forms[0].submit();
+	}
+	else
+		location.href="detect_no_simcard.htm";
+}
+	
+</script>
+</form>
+</body>
+
+</html>

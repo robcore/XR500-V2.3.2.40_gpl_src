@@ -1,0 +1,23 @@
+#!/bin/sh /etc/rc.common
+START=70
+
+
+pot_start() {
+	potd
+	potval
+        netconn.sh &
+}
+
+boot() {
+	pot_start
+}
+
+pot_stop(){
+	killall potval
+	killall potd
+}
+
+restart(){
+	pot_stop
+	pot_start
+}

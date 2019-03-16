@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="style/top_style.css" />
+
+</head>
+
+<body>
+
+<div id="header_top">
+		
+	<div class="top_name">
+		<div class="title_div"></div>
+		<% cd_less_top_hardware_version() %>
+	</div>
+	
+	<div id="firmware_version" class="firmware_version_div" style="display:none">
+		<div align="right">Router Firmware Version:</div>
+		<div align="right"><% cat_file("/firmware_version") %><% get_firmware_region("single_blank", "ww_blank") %></div>
+	</div>
+	
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<% hijack_title() %>
+<meta charset="utf-8" />
+</head>
+
+<body onLoad="loadvalue();" bgcolor=#ffffff>
+
+<script>
+<% get_signal_strength() %>
+
+function loadvalue()
+{
+	if(signal_strength > 0)
+		location.href="BRS_networkIssue.html";
+	else
+		location.href="BRS_no_coverage.html";
+}
+</script>
+</body>
+</html>

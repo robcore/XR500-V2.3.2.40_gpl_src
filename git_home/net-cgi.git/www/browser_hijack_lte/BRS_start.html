@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<% hijack_title() %>
+<meta charset="utf-8" />
+</head>
+
+<body onLoad="loadvalue();">
+<% form_submit("apply", "BRS_connect.html", "lte_succ_conn_hsdpa") %>
+<script>
+var hijack_process = "<% cfg_get("hijack_process") %>";
+
+function loadvalue()
+{
+	if( hijack_process == "1")//no configured
+		location.href="BRS_check_simcard_wait.html";
+	else
+		document.forms[0].submit();
+}
+
+</script>
+</form>
+</body>
+
+</html>

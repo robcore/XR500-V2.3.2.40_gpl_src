@@ -1,0 +1,15 @@
+#!/bin/sh /etc/rc.common
+
+START=62
+
+boot() {
+	module_name=`cat module_name`
+
+	region=$(/sbin/artmtd -r region | grep REGION | awk '{print $2}')
+
+        # only PR sku will start the funjsq process
+        [ "x$module_name" == "xR7800" -a x"${region}" = x"PR" ] && {
+	/data/funjsq/bin/funjsq.sh init &
+	}
+
+}
